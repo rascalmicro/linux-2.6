@@ -757,6 +757,7 @@ void __init at91_add_device_ac97(struct ac97c_platform_data *data)
 void __init at91_add_device_ac97(struct ac97c_platform_data *data) {}
 #endif
 
+
 /* --------------------------------------------------------------------
  *  CAN Controller
  * -------------------------------------------------------------------- */
@@ -793,6 +794,7 @@ void __init at91_add_device_can(struct at91_can_data *data)
 #else
 void __init at91_add_device_can(struct at91_can_data *data) {}
 #endif
+
 
 /* --------------------------------------------------------------------
  *  LCD Controller

@@ -127,9 +127,9 @@ static struct at91_eth_data __initdata ek_macb_data = {
  */
 static struct mtd_partition __initdata ek_nand_partition[] = {
 	{
-		.name   = "Bootstrap",
+		.name	= "Bootstrap",
 		.offset = 0,
-		.size   = 4 * SZ_1M,
+		.size	= 4 * SZ_1M,
 	},
 	{
 		.name	= "Partition 1",

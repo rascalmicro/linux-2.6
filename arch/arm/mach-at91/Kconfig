@@ -121,6 +121,12 @@ config MACH_AT91RM9200EK
 	  Select this if you are using Atmel's AT91RM9200-EK Evaluation Kit.
 	  <http://www.atmel.com/dyn/products/tools_card.asp?tool_id=3507>
 
+config MACH_AT91BOFF
+	bool "Boff Armputera BF-210"
+	help
+	  Select this if you are using Boff Armputera BF-210 board.
+	  <http://bryndza.ep.com.pl>
+
 config MACH_CSB337
 	bool "Cogent CSB337"
 	help
@@ -162,12 +168,33 @@ config MACH_KAFA
 	help
 	  Select this if you are using Sperry-Sun's KAFA board.
 
+config MACH_CHUB
+	bool "Promwad Chub board"
+	help
+	  Select this if you are using Promwad's Chub board.
+
+config MACH_HOMEMATIC
+	bool "eQ-3 HomeMatic"
+	help
+	  Select this if you are using eQ-3's HomeMatic device.
+	  <http://www.eq-3.com>
+
 config MACH_ECBAT91
 	bool "emQbit ECB_AT91 SBC"
 	select HAVE_AT91_DATAFLASH_CARD
 	help
 	  Select this if you are using emQbit's ECB_AT91 board.
 	  <http://wiki.emqbit.com/free-ecb-at91>
+
+config MACH_SWEDATMS
+	bool "Sweda TMS Board"
+	help
+	  Select this if you are using Sweda TMS-100 board.
+
+config MACH_TT9200
+	bool "Toptech TT9200"
+	help
+	  Select this if you are using Toptech's TT9200 board.
 
 config MACH_YL9200
 	bool "ucDragon YL-9200"
@@ -179,11 +206,6 @@ config MACH_CPUAT91
 	help
 	  Select this if you are using the Eukrea Electromatique's
 	  CPUAT91 board <http://www.eukrea.com/>.
-
-config MACH_ECO920
-	bool "eco920"
-	help
-	  Select this if you are using the eco920 board
 
 endif
 
@@ -242,11 +264,11 @@ config MACH_QIL_A9260
 	  Select this if you are using a Calao Systems QIL-A9260 Board.
 	  <http://www.calao-systems.com>
 
-config MACH_CPU9260
-	bool "Eukrea CPU9260 board"
+config MACH_SBC35_A9260
+	bool "CALAO SBC35-A9260"
 	help
-	  Select this if you are using a Eukrea Electromatique's
-	  CPU9260 Board <http://www.eukrea.com/>
+	  Select this if you are using a Calao Systems SBC35-A9260.
+	  <http://www.calao-systems.com>
 
 endif
 
@@ -301,6 +323,19 @@ config MACH_USB_A9263
 	help
 	  Select this if you are using a Calao Systems USB-A9263.
 	  <http://www.calao-systems.com>
+
+config MACH_CSB737
+	bool "Cogent CSB737 System-on-Module"
+	help
+	  Select this if you are using Cogent's CSB737 System-on-module.
+	  <http://www.cogcomp.com/csb_csb737.htm>
+
+config MACH_TOTEMNOVA
+	bool "TotemNova Micronova industrial supervisor"
+	select HAVE_AT91_DATAFLASH_CARD
+	help
+	  Select this if you are using Micronova's TotemNova industrial supervisor
+	  <http://www.micronovasrl.com>
 
 config MACH_NEOCORE926
 	bool "Adeneo NEOCORE926"
@@ -363,6 +398,24 @@ config MACH_STAMP9G20
 	  Select this if you are using taskit's Stamp9G20 CPU module on its
 	  evaluation board.
 	  <http://www.taskit.de/en/>
+
+config MACH_USB_A9G20
+	bool "CALAO USB-A9G20"
+	help
+	  Select this if you are using a Calao Systems USB-A9G20.
+	  <http://www.calao-systems.com>
+
+config MACH_QIL_A9G20
+	bool "CALAO QIL-A9G20"
+	help
+	  Select this if you are using a Calao Systems QIL-A9G20.
+	  <http://www.calao-systems.com>
+
+config MACH_SBC35_A9G20
+	bool "CALAO SBC35-A9G20"
+	help
+	  Select this if you are using a Calao Systems SBC35-A9G20.
+	  <http://www.calao-systems.com>
 
 endif
 

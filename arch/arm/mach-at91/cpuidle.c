@@ -41,9 +41,10 @@ static int at91_enter_idle(struct cpuidle_device *dev,
 
 	local_irq_disable();
 	do_gettimeofday(&before);
-	if (state == &dev->states[0])
+	if (state == &dev->states[0]) {
 		/* Wait for interrupt state */
 		cpu_do_idle();
+	}
 	else if (state == &dev->states[1]) {
 		asm("b 1f; .align 5; 1:");
 		asm("mcr p15, 0, r0, c7, c10, 4");	/* drain write buffer */

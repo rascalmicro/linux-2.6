@@ -139,17 +139,17 @@
  * DMA peripheral identifiers
  * for hardware handshaking interface
  */
-#define AT_DMA_ID_MCI0		 0
-#define AT_DMA_ID_SPI0_TX	 1
-#define AT_DMA_ID_SPI0_RX	 2
-#define AT_DMA_ID_SPI1_TX	 3
-#define AT_DMA_ID_SPI1_RX	 4
-#define AT_DMA_ID_SSC0_TX	 5
-#define AT_DMA_ID_SSC0_RX	 6
-#define AT_DMA_ID_SSC1_TX	 7
-#define AT_DMA_ID_SSC1_RX	 8
-#define AT_DMA_ID_AC97_TX	 9
-#define AT_DMA_ID_AC97_RX	10
-#define AT_DMA_ID_MCI1		13
+#define AT91SAM9G45_DMA_ID_MCI0		0
+#define AT91SAM9G45_DMA_ID_SPI0_TX	1
+#define AT91SAM9G45_DMA_ID_SPI0_RX	2
+#define AT91SAM9G45_DMA_ID_SPI1_TX	3
+#define AT91SAM9G45_DMA_ID_SPI1_RX	4
+#define AT91SAM9G45_DMA_ID_SSC0_TX	5
+#define AT91SAM9G45_DMA_ID_SSC0_RX	6
+#define AT91SAM9G45_DMA_ID_SSC1_TX	7
+#define AT91SAM9G45_DMA_ID_SSC1_RX	8
+#define AT91SAM9G45_DMA_ID_AC97_TX	9
+#define AT91SAM9G45_DMA_ID_AC97_RX	10
+#define AT91SAM9G45_DMA_ID_MCI1		13
 
 #endif

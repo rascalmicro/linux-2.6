@@ -24,7 +24,7 @@
 #include <mach/at91sam9_smc.h>
 
 #include "generic.h"
-
+#include "sam9_smc.h"
 
 /* --------------------------------------------------------------------
  *  USB Host
@@ -194,7 +194,6 @@ void __init at91_add_device_eth(struct at91_eth_data *data)
 #else
 void __init at91_add_device_eth(struct at91_eth_data *data) {}
 #endif
-
 
 /* --------------------------------------------------------------------
  *  MMC / SD
@@ -1255,6 +1254,48 @@ static struct platform_device cf1_device = {
 	.num_resources	= ARRAY_SIZE(cf1_resources),
 };
 
+/*
+ * CompactFlash timings are based on Common Memory Read/Write Timing
+ * Specification of "CF+ and CompactFlash Specification Revision 2.0",
+ * the implementation includes TDF optimization of SMC.
+ */
+static struct sam9_smc_config __initdata at91sam9260_cf_timing = {
+	.ncs_read_setup		= 3,
+	.nrd_setup		= 3,
+	.ncs_write_setup	= 3,
+	.nwe_setup		= 3,
+
+	.ncs_read_pulse		= 15,
+	.nrd_pulse		= 13,
+	.ncs_write_pulse	= 17,
+	.nwe_pulse		= 15,
+
+	.read_cycle		= 18,
+	.write_cycle		= 21,
+
+	.mode			= AT91_SMC_READMODE | AT91_SMC_WRITEMODE | AT91_SMC_EXNWMODE_READY | AT91_SMC_BAT_SELECT | AT91_SMC_DBW_16 | AT91_SMC_TDFMODE,
+	.tdf_cycles		= 10,
+};
+
+static struct sam9_smc_config __initdata at91sam9g20_cf_timing = {
+	.ncs_read_setup		= 4,
+	.nrd_setup		= 4,
+	.ncs_write_setup	= 4,
+	.nwe_setup		= 4,
+
+	.ncs_read_pulse		= 19,
+	.nrd_pulse		= 17,
+	.ncs_write_pulse	= 21,
+	.nwe_pulse		= 19,
+
+	.read_cycle		= 23,
+	.write_cycle		= 26,
+
+	.mode			= AT91_SMC_READMODE | AT91_SMC_WRITEMODE | AT91_SMC_EXNWMODE_READY | AT91_SMC_BAT_SELECT | AT91_SMC_DBW_16 | AT91_SMC_TDFMODE,
+	.tdf_cycles		= 13,
+};
+
+
 void __init at91_add_device_cf(struct at91_cf_data *data)
 {
 	struct platform_device *pdev;
@@ -1287,6 +1328,12 @@ void __init at91_add_device_cf(struct at91_cf_data *data)
 	}
 
 	at91_sys_write(AT91_MATRIX_EBICSA, csa);
+
+	/* configure static memory controller */
+	if (cpu_is_at91sam9g20())
+		sam9_smc_configure(cs, &at91sam9g20_cf_timing);
+	else
+		sam9_smc_configure(cs, &at91sam9260_cf_timing);
 
 	if (data->rst_pin) {
 		at91_set_multi_drive(data->rst_pin, 0);

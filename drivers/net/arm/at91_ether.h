@@ -45,8 +45,16 @@
 #define MII_DPMICR_REG		17
 #define MII_DPMISR_REG		18
 
+/* STE100P specific registers */
+#define MII_STE100P_ID		0x1c040010
+#define MII_STE100P_XCSIIS_REG	0x11
+#define MII_STE100P_XIE_REG	0x12
+
 /* Altima AC101L PHY */
 #define MII_AC101L_ID		0x00225520
+
+/* Micrel KSZ8041 PHY */
+#define MII_KSZ8041_ID		0x00221510
 
 /* Micrel KS8721 PHY */
 #define MII_KS8721_ID		0x00221610

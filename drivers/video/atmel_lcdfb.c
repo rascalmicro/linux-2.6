@@ -968,7 +968,7 @@ static int __init atmel_lcdfb_probe(struct platform_device *pdev)
 		sinfo->atmel_lcdfb_power_control(1);
 
 	dev_info(dev, "fb%d: Atmel LCDC at 0x%08lx (mapped at %p), irq %d\n",
-		       info->node, info->fix.mmio_start, sinfo->mmio, sinfo->irq_base);
+				info->node, info->fix.mmio_start, sinfo->mmio, sinfo->irq_base);
 
 	return 0;
 

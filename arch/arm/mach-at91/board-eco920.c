@@ -131,7 +131,7 @@ static void __init eco920_board_init(void)
 	at91_set_gpio_input(AT91_PIN_PA23, 0);
 	at91_set_deglitch(AT91_PIN_PA23, 1);
 
-/* Initialization of the Static Memory Controller for Chip Select 3 */
+	/* Initialization of the Static Memory Controller for Chip Select 3 */
 	at91_sys_write(AT91_SMC_CSR(3),
 		AT91_SMC_DBW_16  |	/* 16 bit */
 		AT91_SMC_WSEN    |
