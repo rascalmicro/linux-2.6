@@ -201,7 +201,7 @@ static void __init ek_add_device_nand(void)
  * det_pin, wp_pin and vcc_pin are not connected
  */
 static struct at91_mmc_data __initdata ek_mmc_data = {
-	.slot_b		= 1,
+	.slot_b		= 0,
 	.wire4		= 1,
 };
 
@@ -344,7 +344,7 @@ static void __init ek_board_init(void)
 	/* I2C */
 	at91_add_device_i2c(ek_i2c_devices, ARRAY_SIZE(ek_i2c_devices));
 	/* LEDs */
-	at91_gpio_leds(ek_leds, ARRAY_SIZE(ek_leds));
+	/* at91_gpio_leds(ek_leds, ARRAY_SIZE(ek_leds)); */
 	/* Push Buttons */
 	ek_add_device_buttons();
 	/* PCK0 provides MCLK to the WM8731 */
