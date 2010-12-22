@@ -45,6 +45,13 @@ modules.builtin
 /Module.symvers
 
 #
+# Files generated during ARM build
+#
+arch/arm/boot/compressed/lib1funcs.S
+arch/arm/boot/compressed/piggy.gzip
+arch/arm/boot/compressed/vmlinux
+
+#
 # git files that we don't want to ignore even it they are dot-files
 #
 !.gitignore
