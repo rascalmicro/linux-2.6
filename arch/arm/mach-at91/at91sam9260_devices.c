@@ -544,7 +544,7 @@ static struct platform_device at91sam9260_spi0_device = {
 	.num_resources	= ARRAY_SIZE(spi0_resources),
 };
 
-static const unsigned spi0_standard_cs[4] = { AT91_PIN_PA3, AT91_PIN_PC11, AT91_PIN_PC16, AT91_PIN_PC17 };
+static const unsigned spi0_standard_cs[4] = { AT91_PIN_PA3, AT91_PIN_PC16, AT91_PIN_PC17 };
 
 static struct resource spi1_resources[] = {
 	[0] = {
