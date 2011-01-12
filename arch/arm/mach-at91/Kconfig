@@ -417,6 +417,12 @@ config MACH_SBC35_A9G20
 	  Select this if you are using a Calao Systems SBC35-A9G20.
 	  <http://www.calao-systems.com>
 
+config MACH_RASCAL
+	bool "Rascal Micro Rascal"
+	help
+	  Select this if you are using a Rascal from Rascal Micro.
+	  <http://www.rascalmicro.com>
+
 endif
 
 if (ARCH_AT91SAM9260 || ARCH_AT91SAM9G20)
