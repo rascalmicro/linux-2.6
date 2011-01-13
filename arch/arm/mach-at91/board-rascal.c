@@ -82,15 +82,6 @@ static struct at91_usbh_data __initdata ek_usbh_data = {
 };
 
 /*
- * USB Device port
- */
-static struct at91_udc_data __initdata ek_udc_data = {
-	.vbus_pin	= AT91_PIN_PC5,
-	.pullup_pin	= 0,		/* pull-up driven by UDC */
-};
-
-
-/*
  * SPI devices.
  */
 static struct spi_board_info ek_spi_devices[] = {
@@ -322,6 +313,35 @@ static struct i2c_board_info __initdata ek_i2c_devices[] = {
         },
 };
 
+static void __init initialize_shield_pins(void)
+{
+    /* Port A (Disabled for Rascal 0.4 hardware because of Ethernet conflict; should work for 0.5+) */
+
+    /* at91_set_gpio_output(AT91_PIN_PA23, 1); */
+    /* at91_set_gpio_output(AT91_PIN_PA24, 1); */
+
+    /* Port B */
+
+    at91_set_gpio_output(AT91_PIN_PB0, 1);
+    at91_set_gpio_output(AT91_PIN_PB1, 1);
+    at91_set_gpio_output(AT91_PIN_PB2, 1);
+    at91_set_gpio_output(AT91_PIN_PB3, 1);
+    at91_set_gpio_output(AT91_PIN_PB4, 1);
+    at91_set_gpio_output(AT91_PIN_PB5, 1);
+    at91_set_gpio_output(AT91_PIN_PB6, 1);
+    at91_set_gpio_output(AT91_PIN_PB7, 1);
+    at91_set_gpio_output(AT91_PIN_PB8, 1);
+    at91_set_gpio_output(AT91_PIN_PB9, 1);
+
+    /* Port C */
+
+    at91_set_gpio_output(AT91_PIN_PC0, 1);
+    at91_set_gpio_output(AT91_PIN_PC1, 1);
+    at91_set_gpio_output(AT91_PIN_PC2, 1);
+    at91_set_gpio_output(AT91_PIN_PC3, 1);
+    at91_set_gpio_output(AT91_PIN_PC4, 1);
+    at91_set_gpio_output(AT91_PIN_PC5, 1);
+}
 
 static void __init ek_board_init(void)
 {
@@ -329,8 +349,6 @@ static void __init ek_board_init(void)
 	at91_add_device_serial();
 	/* USB Host */
 	at91_add_device_usbh(&ek_usbh_data);
-	/* USB Device */
-	at91_add_device_udc(&ek_udc_data);
 	/* SPI */
 	at91_add_device_spi(ek_spi_devices, ARRAY_SIZE(ek_spi_devices));
 	/* NAND */
@@ -353,6 +371,7 @@ static void __init ek_board_init(void)
 	at91_add_device_ssc(AT91SAM9260_ID_SSC, ATMEL_SSC_TX);
 
     at91_set_gpio_output(AT91_PIN_PC11, 1);	/* Rascal user LED */
+    initialize_shield_pins();
 }
 
 MACHINE_START(RASCAL, "Rascal")
