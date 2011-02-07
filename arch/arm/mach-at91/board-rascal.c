@@ -56,10 +56,8 @@ static void __init ek_map_io(void)
 	/* DBGU on ttyS0. (Rx & Tx only) */
 	at91_register_uart(0, 0, 0);
 
-	/* USART0 on ttyS1. (Rx, Tx, CTS, RTS, DTR, DSR, DCD, RI) */
-	at91_register_uart(AT91SAM9260_ID_US0, 1, ATMEL_UART_CTS | ATMEL_UART_RTS
-			   | ATMEL_UART_DTR | ATMEL_UART_DSR | ATMEL_UART_DCD
-			   | ATMEL_UART_RI);
+    /* USART0 on ttyS1. (Rx & Tx only) */
+    at91_register_uart(AT91SAM9260_ID_US0, 1, 0);
 
 	/* USART1 on ttyS2. (Rx, Tx, RTS, CTS) */
 	at91_register_uart(AT91SAM9260_ID_US1, 2, ATMEL_UART_CTS | ATMEL_UART_RTS);
@@ -326,8 +324,8 @@ static void __init initialize_shield_pins(void)
     at91_set_gpio_output(AT91_PIN_PB1, 1);
     at91_set_gpio_output(AT91_PIN_PB2, 1);
     at91_set_gpio_output(AT91_PIN_PB3, 1);
-    at91_set_gpio_output(AT91_PIN_PB4, 1);
-    at91_set_gpio_output(AT91_PIN_PB5, 1);
+    /* at91_set_gpio_output(AT91_PIN_PB4, 1);
+    at91_set_gpio_output(AT91_PIN_PB5, 1); */ /* Disabled for serial port 0 testing */
     at91_set_gpio_output(AT91_PIN_PB6, 1);
     at91_set_gpio_output(AT91_PIN_PB7, 1);
     at91_set_gpio_output(AT91_PIN_PB8, 1);
