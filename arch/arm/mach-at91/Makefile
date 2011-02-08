@@ -99,6 +99,7 @@ obj-$(CONFIG_MACH_AT91EB01)	+= board-eb01.o
 # Drivers
 obj-y				+= leds.o
 obj-$(CONFIG_FB_S1D13XXX)	+= ics1523.o
+obj-$(CONFIG_AT91_ADC)		+= adc.o
 
 # Power Management
 obj-$(CONFIG_PM)		+= pm.o

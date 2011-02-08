@@ -33,7 +33,7 @@
 
 #include <asm/io.h>
 
-#include "at91_adc.h"
+#include <mach/at91_adc.h>
 
 #define DRV_CLASS	"at91_adc"
 
