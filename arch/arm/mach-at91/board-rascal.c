@@ -107,7 +107,7 @@ static struct spi_board_info ek_spi_devices[] = {
  */
 static struct at91_eth_data __initdata ek_macb_data = {
 	.phy_irq_pin	= AT91_PIN_PA7,
-	.is_rmii	= 0,
+	.is_rmii	= 1,
 };
 
 
