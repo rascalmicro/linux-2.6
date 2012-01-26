@@ -82,23 +82,29 @@ static struct at91_usbh_data __initdata ek_usbh_data = {
 /*
  * SPI devices.
  */
-static struct spi_board_info ek_spi_devices[] = {
-#if !defined(CONFIG_MMC_AT91)
-	{	/* DataFlash chip */
-		.modalias	= "mtd_dataflash",
-		.chip_select	= 1,
-		.max_speed_hz	= 15 * 1000 * 1000,
-		.bus_num	= 0,
-	},
-#if defined(CONFIG_MTD_AT91_DATAFLASH_CARD)
-	{	/* DataFlash card */
-		.modalias	= "mtd_dataflash",
+static struct spi_board_info rascal_spi_devices[] = {
+	{
+		.modalias	= "spidev",
 		.chip_select	= 0,
 		.max_speed_hz	= 15 * 1000 * 1000,
-		.bus_num	= 0,
+		.bus_num	= 1,
+        .mode = SPI_MODE_3,
 	},
-#endif
-#endif
+    {
+        .modalias   = "spidev",
+        .chip_select    = 1,
+        .max_speed_hz   = 15 * 1000 * 1000,
+        .bus_num    = 1,
+        .mode = SPI_MODE_3,
+    },
+    {
+        .modalias   = "spidev",
+        .chip_select    = 2,
+        .max_speed_hz   = 15 * 1000 * 1000,
+        .bus_num    = 1,
+        .mode = SPI_MODE_3,
+    },
+
 };
 
 
@@ -320,10 +326,10 @@ static void __init initialize_shield_pins(void)
 
     /* Port B */
 
-    at91_set_gpio_output(AT91_PIN_PB0, 1);
+/*    at91_set_gpio_output(AT91_PIN_PB0, 1);
     at91_set_gpio_output(AT91_PIN_PB1, 1);
     at91_set_gpio_output(AT91_PIN_PB2, 1);
-    at91_set_gpio_output(AT91_PIN_PB3, 1);
+    at91_set_gpio_output(AT91_PIN_PB3, 1); */
     /* at91_set_gpio_output(AT91_PIN_PB4, 1);
     at91_set_gpio_output(AT91_PIN_PB5, 1); */ /* Disabled for serial port 0 testing */
     at91_set_gpio_output(AT91_PIN_PB6, 1);
@@ -337,8 +343,8 @@ static void __init initialize_shield_pins(void)
     at91_set_gpio_output(AT91_PIN_PC1, 1);
     at91_set_gpio_output(AT91_PIN_PC2, 1);
     at91_set_gpio_output(AT91_PIN_PC3, 1);
-    at91_set_gpio_output(AT91_PIN_PC4, 1);
-    at91_set_gpio_output(AT91_PIN_PC5, 1);
+/*    at91_set_gpio_output(AT91_PIN_PC4, 1);
+    at91_set_gpio_output(AT91_PIN_PC5, 1); */
 }
 
 static void __init ek_board_init(void)
@@ -348,7 +354,7 @@ static void __init ek_board_init(void)
 	/* USB Host */
 	at91_add_device_usbh(&ek_usbh_data);
 	/* SPI */
-	at91_add_device_spi(ek_spi_devices, ARRAY_SIZE(ek_spi_devices));
+	at91_add_device_spi(rascal_spi_devices, ARRAY_SIZE(rascal_spi_devices));
 	/* NAND */
 	ek_add_device_nand();
 	/* Ethernet */
