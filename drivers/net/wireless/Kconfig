@@ -2,6 +2,8 @@
 # Wireless LAN device configuration
 #
 
+source "drivers/net/wireless/rtl8192cu/Kconfig"
+
 menuconfig WLAN
 	bool "Wireless LAN"
 	depends on !S390

@@ -84,29 +84,34 @@ static struct at91_usbh_data __initdata ek_usbh_data = {
  */
 static struct spi_board_info rascal_spi_devices[] = {
 	{
-		.modalias	= "spidev",
-		.chip_select	= 0,
-		.max_speed_hz	= 15 * 1000 * 1000,
-		.bus_num	= 1,
-        .mode = SPI_MODE_3,
+                .modalias	= "spidev",
+                .chip_select	= 0,
+                .max_speed_hz	= 528 * 1000,
+                .bus_num	= 1,
+                .mode = SPI_MODE_3,
 	},
-    {
-        .modalias   = "spidev",
-        .chip_select    = 1,
-        .max_speed_hz   = 15 * 1000 * 1000,
-        .bus_num    = 1,
-        .mode = SPI_MODE_3,
-    },
-    {
-        .modalias   = "spidev",
-        .chip_select    = 2,
-        .max_speed_hz   = 15 * 1000 * 1000,
-        .bus_num    = 1,
-        .mode = SPI_MODE_3,
-    },
-
+	{
+                .modalias   = "spidev",
+                .chip_select    = 1,
+                .max_speed_hz   = 528 * 1000,
+                .bus_num    = 1,
+                .mode = SPI_MODE_3,
+        },
+        {
+                .modalias   = "spidev",
+                .chip_select    = 2,
+                .max_speed_hz   = 528 * 1000,
+                .bus_num    = 1,
+                .mode = SPI_MODE_3,
+        },
+        {
+                .modalias   = "spidev",
+                .chip_select    = 3,
+                .max_speed_hz   = 528 * 1000,
+                .bus_num    = 1,
+                .mode = SPI_MODE_3,
+        },
 };
-
 
 /*
  * MACB Ethernet device
