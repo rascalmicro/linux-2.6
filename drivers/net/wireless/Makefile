@@ -3,6 +3,7 @@
 #
 
 obj-$(CONFIG_RTL8192CU) += rtl8192cu/
+obj-$(CONFIG_RT73) += rt73/
 
 obj-$(CONFIG_IPW2100) += ipw2x00/
 obj-$(CONFIG_IPW2200) += ipw2x00/

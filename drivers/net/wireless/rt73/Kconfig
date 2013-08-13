@@ -1,0 +1,8 @@
+config RT73
+	tristate "Ralink RT73 USB WiFi"
+	depends on USB
+	---help---
+	  This driver implements basic IEEE802.11. Infrastructure and adhoc mode
+   with open or shared or WPA-PSK or WPA2-PSK authentication method.
+   NONE, WEP, TKIP and AES encryption.
+
